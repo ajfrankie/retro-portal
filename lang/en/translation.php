@@ -178,17 +178,37 @@ return [
   "Placeholders" => "Placeholders",
   "Toasts" => "Toasts",
   
-  "Jobs" => "Jobs",
-  "Job_List" => "Job List",
-  "Job_Grid" => "Job Grid",
-  "Apply_Job" => "Apply Job",
-  "Job_Details" => "Job Details",
-  "Jobs_Categories" => "Jobs Categories",
-  "Candidate" => "Candidate",
-  "List" => "List",
-  "Overview" => "Overview",
-  "Utilities" => "Utilities",
-  "hot" => "Hot",
-  "backend" => "Backend",
-  "yajra-datatable" => "Yajra Datatable"
+  
+
+
+
+  //city
+  "categories" => "Categories",
+  "category" => "Category",
+  "name" => "Name",
+  "edit" => "Edit",
+  "inactive" => "Inactive",
+  "active" => "Active",
+  "enter-name" => "Enter Name",
+  "enter-type" => "Enter Type",
+  "status" => "Status",
+  "actions" => "Actions",
+  "create-category" => "Create category",
+  "edit-category" => "Edit category",
+  "cancel" => "cancel",
+  "type" => "Type",
+  "submit" => "Submit",
+  "filter" => "Filter",
+  "close" => "Close",
+  "search" => "Search",
+  "code" => "Code",
+  "remove" => "Remove",
+  "activate" => "Activate",
+  "deactivate" => "Deactivate",
+  "enter-code" => "Enter Code",
+  "category-name" => "category Name",
+  'category-remove-message' => 'Are you sure you want to delete the city :category ? This action cannot be undone and the city will be removed from the active list.',
+  'category-activation-message' => 'Are you sure you want to enable the :category?',
+  'category-deactivation-message' => 'Are you sure you want to disable the :category?',
+  
 ];
