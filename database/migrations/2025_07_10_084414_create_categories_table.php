@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('category_icon')->nullable();
             $table->string('type')->nullable();
             $table->string('name')->nullable();
+             $table->boolean('is_activated')->default(false);
 
             $table->timestamps();
         });

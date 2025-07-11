@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Backend\Auth\LoginController;
 use App\Http\Controllers\Backend\CustomerController;
+use App\Http\Controllers\Backend\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,17 @@ Route::prefix('/admin')->group(function () {
         Route::post('/logout', [LoginController::class, 'logout'])->name('admin.logout');
         Route::get('/customers', [CustomerController::class, 'index'])->name('admin.customers.index');
     });
+
+
+    //category routes
+    Route::prefix('/category')->middleware('auth')->group(function () {
+        Route::get('/', [CategoryController::class, 'index'])->name('admin.category.index');
+        Route::get('/create', [CategoryController::class, 'create'])->name('admin.category.create');
+        Route::post('/store', [CategoryController::class, 'store'])->name('admin.category.store');
+        Route::get('/edit/{id}', [CategoryController::class, 'edit'])->name('admin.category.edit');
+        Route::put('update/{id}', [CategoryController::class, 'update'])->name('admin.category.update');
+        Route::delete('delete/{id}', [CategoryController::class, 'destroy'])->name('admin.category.destroy');
+        Route::post('/deactivate/{id}', [CategoryController::class, 'deactivateCategory'])->name('admin.category.deactivate');
+        Route::post('/activate/{id}', [CategoryController::class, 'activateCategory'])->name('admin.category.activate');
+    });
 });
-
-
