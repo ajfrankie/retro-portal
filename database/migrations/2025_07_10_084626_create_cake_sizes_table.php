@@ -14,13 +14,15 @@ return new class extends Migration
         Schema::create('cake_sizes', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('size')->nullable();
-            $table->string('price')->nullable();
-            $table->boolean('veg_nonveg')->nullable();
+            $table->decimal('price', 10, 2)->nullable(); 
+            $table->enum('veg_nonveg', ['veg', 'non-veg'])->nullable(); 
             $table->boolean('is_activated')->default(false);
 
-
             $table->uuid('cake_id');
-            $table->foreign('cake_id')->references('id')->on('category')->onDelete('cascade');
+            $table->foreign('cake_id')->references('id')->on('cakes')->onDelete('cascade');
+
+            $table->uuid('category_id');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade'); 
 
             $table->timestamps();
         });
