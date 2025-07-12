@@ -14,21 +14,6 @@
         @endslot
     @endcomponent
 
-    <style>
-        .custom-cancel-btn {
-            border-radius: 4px;
-            padding: 6px 18px;
-            font-weight: 500;
-            border-width: 2px;
-            text-transform: capitalize;
-        }
-
-        .custom-cancel-btn:hover {
-            background-color: rgba(255, 0, 0, 0.06);
-            color: red;
-        }
-    </style>
-
     <div class="row">
         <div class="col-lg-12">
             <div class="card">

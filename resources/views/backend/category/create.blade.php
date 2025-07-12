@@ -12,26 +12,7 @@
             @lang('translation.create-category')
         @endslot
     @endcomponent
-    <style>
-        .custom-cancel-btn {
-            border-radius: 4px;
-            /* Subtle rounding */
-            padding: 6px 18px;
-            /* Balanced size */
-            font-weight: 500;
-            /* Optional: slightly bolder text */
-            border-width: 2px;
-            /* Slightly thicker border */
-            text-transform: capitalize;
-            /* Optional: match font style in image */
-        }
 
-        .custom-cancel-btn:hover {
-            background-color: rgba(255, 0, 0, 0.06);
-            /* Subtle red hover effect */
-            color: red;
-        }
-    </style>
 
     <div class="row">
         <div class="col-lg-12">
