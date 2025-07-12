@@ -96,4 +96,6 @@ class CakeController extends Controller
             return back()->withInput()->with('error', 'Failed to activate cake: ' . $e->getMessage());
         }
     }
+
+    
 }

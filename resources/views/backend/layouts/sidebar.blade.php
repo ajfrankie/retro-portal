@@ -30,6 +30,14 @@
                     </a>
                 </li>
 
+
+                <li>
+                    <a href="{{ route('admin.size.index') }}" class="waves-effect">
+                        <i class="bx bx-cake"></i>
+                        <span key="t-chat">Sizes</span>
+                    </a>
+                </li>
+
             </ul>
         </div>
         <!-- Sidebar -->

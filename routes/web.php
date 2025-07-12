@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\Auth\LoginController;
 use App\Http\Controllers\Backend\CakeController;
 use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\SizeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,7 +52,7 @@ Route::prefix('/admin')->group(function () {
         Route::post('/activate/{id}', [CategoryController::class, 'activateCategory'])->name('admin.category.activate');
     });
 
-     //cake routes
+    //cake routes
     Route::prefix('/cake')->middleware('auth')->group(function () {
         Route::get('/', [CakeController::class, 'index'])->name('admin.cake.index');
         Route::get('/create', [CakeController::class, 'create'])->name('admin.cake.create');
@@ -61,5 +62,19 @@ Route::prefix('/admin')->group(function () {
         Route::delete('delete/{id}', [CakeController::class, 'destroy'])->name('admin.cake.destroy');
         Route::post('/deactivate/{id}', [CakeController::class, 'deactivateCake'])->name('admin.cake.deactivate');
         Route::post('/activate/{id}', [CakeController::class, 'activateCake'])->name('admin.cake.activate');
+    });
+
+
+    //size routes
+    Route::prefix('/size')->middleware('auth')->group(function () {
+        Route::get('/', [SizeController::class, 'index'])->name('admin.size.index');
+        Route::get('/create', [SizeController::class, 'create'])->name('admin.size.create');
+        Route::post('/store', [SizeController::class, 'store'])->name('admin.size.store');
+        Route::get('/edit/{id}', [SizeController::class, 'edit'])->name('admin.size.edit');
+        Route::put('update/{id}', [SizeController::class, 'update'])->name('admin.size.update');
+        Route::delete('delete/{id}', [SizeController::class, 'destroy'])->name('admin.size.destroy');
+        Route::post('/deactivate/{id}', [SizeController::class, 'deactivateSize'])->name('admin.size.deactivate');
+        Route::post('/activate/{id}', [SizeController::class, 'activateSize'])->name('admin.size.activate');
+        
     });
 });
