@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('no_of_cakes')->nullable(); 
             $table->time('delivery_time')->nullable();
             $table->date('delivery_date')->nullable();
+            
 
             $table->uuid('category_id');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade'); // 'categories' instead of 'category'

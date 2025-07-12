@@ -15,6 +15,8 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('image_url')->nullable();
             $table->string('is_main')->nullable();
+            $table->boolean('is_activated')->default(false);
+
 
             $table->uuid('cake_id');
             $table->foreign('cake_id')->references('id')->on('category')->onDelete('cascade');

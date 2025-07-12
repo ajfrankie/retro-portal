@@ -1,6 +1,6 @@
-    <div class="modal fade" id="status{{ $category->id }}" tabindex="-1" aria-labelledby="statusLabel" aria-hidden="true">
+<div class="modal fade" id="status{{ $cake->id }}" tabindex="-1" aria-labelledby="statusLabel" aria-hidden="true">
         <form
-            action="{{ $category->is_activated ? route('admin.category.deactivate', $category->id) : route('admin.category.activate', $category->id) }}"
+            action="{{ $cake->is_activated ? route('admin.cake.deactivate', $cake->id) : route('admin.cake.activate', $cake->id) }}"
             method="POST">
             @csrf
             <div class="modal-dialog modal-dialog-centered">
@@ -9,12 +9,12 @@
                         <button type="button" class="btn-close position-absolute end-0 top-0 m-3"
                             data-bs-dismiss="modal" aria-label="Close"></button>
                         <p class="text-muted font-size-16 mb-4">
-                            {{ trans('translation.category-' . ($category->is_activated ? 'deactivation' : 'activation') . '-message', ['category' => $category->name]) }}
+                            {{ trans('translation.cake-' . ($cake->is_activated ? 'deactivation' : 'activation') . '-message', ['cake' => $cake->name]) }}
                         </p>
                         <div class="d-flex justify-content-center gap-2">
                             <button type="submit" style="width: 100px;"
-                                class="btn btn-{{ $category->is_activated ? 'danger' : 'primary' }}">
-                                @lang('translation.' . ($category->is_activated ? 'deactivate' : 'activate'))
+                                class="btn btn-{{ $cake->is_activated ? 'danger' : 'primary' }}">
+                                @lang('translation.' . ($cake->is_activated ? 'deactivate' : 'activate'))
                             </button>
                             <button type="button" class="btn btn-outline-danger custom-cancel-btn"
                                 style="width: 100px;" data-bs-dismiss="modal">

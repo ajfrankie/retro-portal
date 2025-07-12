@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Backend\Auth\LoginController;
+use App\Http\Controllers\Backend\CakeController;
 use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Backend\CategoryController;
 
@@ -48,5 +49,17 @@ Route::prefix('/admin')->group(function () {
         Route::delete('delete/{id}', [CategoryController::class, 'destroy'])->name('admin.category.destroy');
         Route::post('/deactivate/{id}', [CategoryController::class, 'deactivateCategory'])->name('admin.category.deactivate');
         Route::post('/activate/{id}', [CategoryController::class, 'activateCategory'])->name('admin.category.activate');
+    });
+
+     //cake routes
+    Route::prefix('/cake')->middleware('auth')->group(function () {
+        Route::get('/', [CakeController::class, 'index'])->name('admin.cake.index');
+        Route::get('/create', [CakeController::class, 'create'])->name('admin.cake.create');
+        Route::post('/store', [CakeController::class, 'store'])->name('admin.cake.store');
+        Route::get('/edit/{id}', [CakeController::class, 'edit'])->name('admin.cake.edit');
+        Route::put('update/{id}', [CakeController::class, 'update'])->name('admin.cake.update');
+        Route::delete('delete/{id}', [CakeController::class, 'destroy'])->name('admin.cake.destroy');
+        Route::post('/deactivate/{id}', [CakeController::class, 'deactivateCake'])->name('admin.cake.deactivate');
+        Route::post('/activate/{id}', [CakeController::class, 'activateCake'])->name('admin.cake.activate');
     });
 });

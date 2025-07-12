@@ -18,8 +18,15 @@
 
                 <li>
                     <a href="{{ route('admin.category.index') }}" class="waves-effect">
-                        <i class="bx bx-user"></i>
+                        <i class="bx bx-category"></i>
                         <span key="t-chat">Categories</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('admin.cake.index') }}" class="waves-effect">
+                        <i class="bx bx-cake"></i>
+                        <span key="t-chat">Cakes</span>
                     </a>
                 </li>
 

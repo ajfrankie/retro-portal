@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('size')->nullable();
             $table->string('price')->nullable();
             $table->boolean('veg_nonveg')->nullable();
+            $table->boolean('is_activated')->default(false);
+
 
             $table->uuid('cake_id');
             $table->foreign('cake_id')->references('id')->on('category')->onDelete('cascade');
