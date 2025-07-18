@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('custom_orders', function (Blueprint $table) {
+        Schema::create('customized_orders', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('customer_name')->nullable();
             $table->string('address')->nullable();
@@ -43,6 +43,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('custom_orders');
+        Schema::dropIfExists('customized_orders');
     }
 };
