@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\CakeController;
 use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SizeController;
+use App\Http\Controllers\OnsiteOrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,6 +76,16 @@ Route::prefix('/admin')->group(function () {
         Route::delete('delete/{id}', [SizeController::class, 'destroy'])->name('admin.size.destroy');
         Route::post('/deactivate/{id}', [SizeController::class, 'deactivateSize'])->name('admin.size.deactivate');
         Route::post('/activate/{id}', [SizeController::class, 'activateSize'])->name('admin.size.activate');
-        
+    });
+
+    Route::prefix('/onsite')->middleware('auth')->group(function () {
+        Route::get('/', [OnsiteOrderController::class, 'index'])->name('admin.onsite.index');
+        Route::get('/create', [OnsiteOrderController::class, 'create'])->name('admin.onsite.create');
+        Route::post('/store', [OnsiteOrderController::class, 'store'])->name('admin.onsite.store');
+        Route::get('/edit/{id}', [OnsiteOrderController::class, 'edit'])->name('admin.onsite.edit');
+        Route::put('update/{id}', [OnsiteOrderController::class, 'update'])->name('admin.onsite.update');
+        Route::delete('delete/{id}', [OnsiteOrderController::class, 'destroy'])->name('admin.onsite.destroy');
+        Route::post('/deactivate/{id}', [OnsiteOrderController::class, 'deactivateSize'])->name('admin.onsite.deactivate');
+        Route::post('/activate/{id}', [OnsiteOrderController::class, 'activateSize'])->name('admin.onsite.activate');
     });
 });

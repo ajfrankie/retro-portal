@@ -38,6 +38,13 @@
                     </a>
                 </li>
 
+                  <li>
+                    <a href="{{ route('admin.onsite.index') }}" class="waves-effect">
+                        <i class="bx bx-cake"></i>
+                        <span key="t-chat">Onsite Order</span>
+                    </a>
+                </li>
+
             </ul>
         </div>
         <!-- Sidebar -->
