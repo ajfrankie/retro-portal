@@ -31,7 +31,7 @@
                     $('#current_passwordError').text(response.Message);
                 }else if(response.isSuccess == true){
                     setTimeout(function () {   
-                        window.location.href = "{{ route('index') }}"; 
+                        window.location.href = "{{ route('admin.login') }}"; 
                     }, 1000);
                 }
             },

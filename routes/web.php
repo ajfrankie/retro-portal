@@ -22,10 +22,9 @@ use App\Http\Controllers\Backend\OnsiteOrderController;
 |
 */
 
-Auth::routes(['login' => false, 'logout' => false, 'verify' => true]);
-
-Route::get('/', [HomeController::class, 'index'])->name('index');
-Route::get('/about-us', [HomeController::class, 'index'])->name('about-us');
+Route::get('/', function () {
+    return redirect()->route('admin.login');  // Redirect to admin login
+});
 
 // Admin
 Route::prefix('/admin')->group(function () {
