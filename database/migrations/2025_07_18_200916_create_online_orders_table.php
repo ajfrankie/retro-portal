@@ -28,7 +28,7 @@ return new class extends Migration
             $table->date('delivery_date')->nullable();
             $table->string('wish')->nullable();
             $table->string('note')->nullable();
-            $table->boolean('veg_nonveg')->nullable();
+            $table->string('veg_nonveg')->nullable();
 
 
             $table->uuid('category_id');
