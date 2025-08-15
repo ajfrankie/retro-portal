@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\Auth\LoginController;
 use App\Http\Controllers\Backend\CakeController;
 use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\CustomizedOrderController;
 use App\Http\Controllers\Backend\SizeController;
 use App\Http\Controllers\Backend\OnsiteOrderController;
 
@@ -83,8 +84,17 @@ Route::prefix('/admin')->group(function () {
         Route::post('/store', [OnsiteOrderController::class, 'store'])->name('admin.onsite.store');
         Route::get('/edit/{id}', [OnsiteOrderController::class, 'edit'])->name('admin.onsite.edit');
         Route::put('update/{id}', [OnsiteOrderController::class, 'update'])->name('admin.onsite.update');
+        Route::get('show/{id}', [OnsiteOrderController::class, 'show'])->name('admin.onsite.show');
         Route::delete('delete/{id}', [OnsiteOrderController::class, 'destroy'])->name('admin.onsite.destroy');
-        Route::post('/deactivate/{id}', [OnsiteOrderController::class, 'deactivateSize'])->name('admin.onsite.deactivate');
-        Route::post('/activate/{id}', [OnsiteOrderController::class, 'activateSize'])->name('admin.onsite.activate');
+    });
+
+    Route::prefix('/customizedOrder')->middleware('auth')->group(function () {
+        Route::get('/', [CustomizedOrderController::class, 'index'])->name('admin.customizedOrder.index');
+        Route::get('/create', [CustomizedOrderController::class, 'create'])->name('admin.customizedOrder.create');
+        Route::post('/store', [CustomizedOrderController::class, 'store'])->name('admin.customizedOrder.store');
+        Route::get('/edit/{id}', [CustomizedOrderController::class, 'edit'])->name('admin.customizedOrder.edit');
+        Route::put('update/{id}', [CustomizedOrderController::class, 'update'])->name('admin.customizedOrder.update');
+        Route::get('show/{id}', [CustomizedOrderController::class, 'show'])->name('admin.customizedOrder.show');
+        Route::delete('delete/{id}', [CustomizedOrderController::class, 'destroy'])->name('admin.customizedOrder.destroy');
     });
 });

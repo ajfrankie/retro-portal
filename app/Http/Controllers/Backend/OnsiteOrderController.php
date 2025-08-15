@@ -68,4 +68,25 @@ class OnsiteOrderController extends Controller
             return back()->withInput()->with('error', 'Failed to update Onsite order: ' . $e->getMessage());
         }
     }
+
+   public function show($id, Request $request)
+    {
+        try {
+            $onsite = app(OnsiteRepository::class)->find($id);
+            $categories = app(CategoryRepository::class)->get($request)->get();
+            $cakes = app(CakeRepository::class)->get($request)->get();
+            if (!$onsite) {
+                return redirect()->route('admin.onsite.index')->with('error', 'Onsite order  not found.');
+            }
+
+            return view('backend.onsiteorders.show', [
+                'cakes' => $cakes,
+                'onsite' => $onsite,
+                'categories' => $categories
+            ]);
+        } catch (\Exception $e) {
+            $this->logError('edit', $e, ['id' => $id]);
+            return back()->with('error', 'Failed to fetch Onsite order  details: ' . $e->getMessage());
+        }
+    }
 }
