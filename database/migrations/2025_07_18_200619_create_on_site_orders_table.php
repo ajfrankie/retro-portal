@@ -15,12 +15,14 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('customer_name')->nullable();
             $table->decimal('total_amount', 10, 2)->nullable();
-            $table->boolean('veg_nonveg')->nullable();
+            $table->string('veg_nonveg')->nullable();
             $table->string('phone_number')->nullable();
             $table->string('status')->nullable();
             $table->string('no_of_cakes')->nullable();
             $table->time('delivery_time')->nullable();
             $table->date('delivery_date')->nullable();
+            $table->string('description')->nullable();
+            $table->string('customized_text')->nullable();
 
 
             $table->uuid('category_id');

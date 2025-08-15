@@ -9,7 +9,7 @@ use App\Http\Controllers\Backend\CakeController;
 use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SizeController;
-use App\Http\Controllers\OnsiteOrderController;
+use App\Http\Controllers\Backend\OnsiteOrderController;
 
 /*
 |--------------------------------------------------------------------------

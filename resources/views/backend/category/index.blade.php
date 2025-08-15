@@ -9,7 +9,7 @@
             @lang('translation.category')
         @endslot
         @slot('title')
-            {{-- @lang('translation.category') --}}
+            @lang('translation.category')
         @endslot
     @endcomponent
 
