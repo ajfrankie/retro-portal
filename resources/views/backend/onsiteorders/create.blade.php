@@ -27,6 +27,17 @@
                                 <div class="alert alert-danger mt-2 alert-message">{{ session('error') }}</div>
                             @endif
 
+
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label class="form-label">@lang('translation.customer_name')</label>
@@ -34,6 +45,26 @@
                                         name="customer_name" placeholder="@lang('translation.customer-name')"
                                         value="{{ old('customer_name') }}">
                                     @error('customer_name')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+
+
+                             <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">@lang('translation.select-category')</label>
+                                    <select class="form-select @error('category_id') is-invalid @enderror"
+                                        name="category_id">
+                                        <option selected disabled value="">Choose...</option>
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}"
+                                                {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                                                {{ $category->name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    @error('category_id')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
@@ -51,25 +82,6 @@
                                             Non-Veg</option>
                                     </select>
                                     @error('veg_nonveg')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label class="form-label">@lang('translation.select-category')</label>
-                                    <select class="form-select @error('category_id') is-invalid @enderror"
-                                        name="category_id">
-                                        <option selected disabled value="">Choose...</option>
-                                        @foreach ($categories as $category)
-                                            <option value="{{ $category->id }}"
-                                                {{ old('category_id') == $category->id ? 'selected' : '' }}>
-                                                {{ $category->name }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                    @error('category_id')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
@@ -108,9 +120,9 @@
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label class="form-label">@lang('translation.phone_no')</label>
-                                    <input type="text" class="form-control @error('phone_no') is-invalid @enderror"
-                                        name="phone_no" placeholder="@lang('translation.phone_no')" value="{{ old('phone_no') }}">
-                                    @error('phone_no')
+                                    <input type="text" class="form-control @error('phone_number') is-invalid @enderror"
+                                        name="phone_number" placeholder="@lang('translation.phone_no')" value="{{ old('phone_number') }}">
+                                    @error('phone_number')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>

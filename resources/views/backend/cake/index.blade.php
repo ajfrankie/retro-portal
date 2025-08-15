@@ -9,7 +9,7 @@
             @lang('translation.cake')
         @endslot
         @slot('title')
-            {{-- @lang('translation.cake') --}}
+            @lang('translation.cake')
         @endslot
     @endcomponent
 
@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <div class="">
+                    <div class="table-responsive">
                         <table class="table align-middle dt-responsive nowrap w-100 table-check">
                             <thead class="table-light">
                                 <tr>
